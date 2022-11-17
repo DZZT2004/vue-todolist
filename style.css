@@ -1,0 +1,15 @@
+h1, #addToDo{
+    text-align: center;
+}
+
+#list{
+    text-align: left;
+    margin: auto;
+    margin-top: 100px;
+    width: 600px;
+    font-size: 24px;
+}
+
+.finito{
+    text-decoration: line-through;
+}

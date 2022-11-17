@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Vue To Do List</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="root">
+        <h1>To Do list</h1>
+        <div id="addToDo">
+            <input id="in">
+            <button id="b1"></button>
+        </div>
+
+        <div id="list">
+            <div id="item" v-for="item in itemList">
+                <p v-if="item.done"><i class="fas fa-times" @click="eliminaToDo(i)"></i> {{ item.text }}</p>
+                <p v-else="item.done" class="finito"><i class="fas fa-times" @click="eliminaToDo(i)"></i> {{ item.text }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
