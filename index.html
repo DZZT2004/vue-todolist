@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/5a2f6ccb16.js" crossorigin="anonymous"></script>
     <title>Vue To Do List</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js" defer></script>
     <script src="script.js" defer></script>
@@ -13,16 +14,24 @@
     <div class="root">
         <h1>To Do list</h1>
         <div id="addToDo">
-            <input id="in">
-            <button id="b1"></button>
+            <input id="in" v-model="newToDo.text">
+            <button id="b1" @click="creaToDo()">Aggiungi</button>
         </div>
 
-        <div id="list">
-            <div id="item" v-for="item in itemList">
-                <p v-if="item.done"><i class="fas fa-times" @click="eliminaToDo(i)"></i> {{ item.text }}</p>
-                <p v-else="item.done" class="finito"><i class="fas fa-times" @click="eliminaToDo(i)"></i> {{ item.text }}</p>
-            </div>
-        </div>
+        <div class="list">
+			<h2 v-if="itemList.length == 0">Non ci sono todo</h2>
+			<ul v-else>
+				<li
+					v-for="(item, i) in itemList"
+					class="item"
+					:key="item.id"
+					:class="{done: item.done}"
+                    >
+					{{ item.text }}
+					<i class="fas fa-times" @click="eliminaToDo(i)"></i>
+				</li>
+			</ul>
+		</div>
     </div>
 </body>
 </html>

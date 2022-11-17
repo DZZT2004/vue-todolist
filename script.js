@@ -12,17 +12,25 @@ const app = new Vue({
             },
             {
                 text: 'Andare in palestra',
-                done: false,
+                done: false
             }
         ],
+        newToDo: {
+            text: "",
+            done: false
+        },
         contatore: 0,
     },
     methods: {
         creaToDo(){
-
+            this.itemList.push({...this.newToDo})
         },
-        eliminaToDo(){
-
+        eliminaToDo(index){
+            this.itemList.splice(index, 1);
+            
+        },
+        alzaContatore(){
+            this.contatore++;
         }
     }
 })
